@@ -1,0 +1,204 @@
+.homepage-name i{
+  color:#FFCE34;
+}
+
+.link-no-design a{
+  text-decoration:none;
+  color:white;
+}
+
+/* ============================= */
+/* Modern Match Page */
+/* ============================= */
+
+.modern-tabs{
+  margin:20px 0 40px;
+}
+
+.modern-tabs .nav-link{
+
+  background:#2f2f2f;
+
+  color:#FFC107;
+
+  border-radius:18px;
+
+  padding:18px;
+
+  font-size:18px;
+
+  font-weight:700;
+
+  transition:.35s;
+
+  border:2px solid transparent;
+
+}
+
+.modern-tabs .nav-link:hover{
+
+  transform:translateY(-4px);
+
+  border-color:#FFC107;
+
+  box-shadow:0 10px 25px rgba(255,193,7,.25);
+
+}
+
+.modern-tabs .nav-link.active{
+
+  background:#FFC107;
+
+  color:#222;
+
+}
+
+.modern-tabs .badge{
+
+  font-size:13px;
+
+}
+
+.card-product{
+
+  background:#2b2b2b;
+
+  border-radius:20px;
+
+  border:none !important;
+
+  padding:18px;
+
+  display:flex;
+
+  align-items:center;
+
+  transition:.3s;
+
+  box-shadow:0 8px 25px rgba(0,0,0,.35);
+
+}
+
+.card-product:hover{
+
+  transform:translateY(-5px);
+
+  box-shadow:0 15px 35px rgba(255,193,7,.18);
+
+}
+
+.card-product img{
+
+  width:90px;
+
+  height:90px;
+
+  border-radius:50%;
+
+  object-fit:cover;
+
+  border:3px solid #FFC107;
+
+}
+
+.card-product-infos{
+
+  margin-left:20px;
+
+}
+
+.card-product-infos h1{
+
+  color:#FFC107;
+
+  font-size:28px;
+
+}
+
+.btn-primary{
+
+  background:#FFC107;
+
+  color:#222;
+
+  border:none;
+
+  border-radius:12px;
+
+  padding:10px 24px;
+
+  font-weight:bold;
+
+}
+
+.btn-primary:hover{
+
+  background:#ffd54f;
+
+  color:#111;
+
+}
+.buddy-card{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  background:#2d2d2d;
+  border-radius:18px;
+
+  padding:18px 25px;
+  margin:20px auto;
+
+  width:100%;
+  min-height:120px;
+
+  box-shadow:0 10px 25px rgba(0,0,0,.35);
+
+  transition:.3s;
+}
+
+.buddy-card:hover{
+  transform:translateY(-4px);
+}
+
+.buddy-left{
+  width:90px;
+  display:flex;
+  justify-content:center;
+}
+.buddy-avatar-section{
+  width:100px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-shrink:0;
+}
+.buddy-avatar{
+  width:65px;
+  height:65px;
+  object-fit:cover;
+  border-radius:50%;
+  border:3px solid #FFC107;
+  display:block;
+}
+
+.buddy-middle{
+  flex:1;
+  padding-left:25px;
+}
+
+.buddy-middle h3{
+  color:#FFC107;
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+.buddy-middle p{
+  color:#d8d8d8;
+  margin:3px 0;
+}
+
+.buddy-right{
+  display:flex;
+  align-items:center;
+}

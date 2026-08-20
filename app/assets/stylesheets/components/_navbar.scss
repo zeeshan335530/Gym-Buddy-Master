@@ -1,0 +1,27 @@
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
+.navbar-lewagon {
+  background-color: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #2d2d2d;
+  transition: 0.5s background-color ease;
+  z-index: 1040;
+}
+
+.navbar-light .navbar-brand {
+  color: #FFCE34;
+}
+
+.navbar > .container-fluid {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}

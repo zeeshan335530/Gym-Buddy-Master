@@ -1,0 +1,20 @@
+<div class="footer fixed-bottom bg-secondary border-top border-primary pt-2">
+  <div class="footer-links">
+    <%= link_to users_path do %>
+      <i class="fa-solid fa-g"></i>
+      <span class="footer-text">Explore</span>
+    <% end %>
+    <%= link_to map_user_path(current_user) do %>
+      <i class="fa-solid fa-map-location-dot"></i>
+      <span class="footer-text">Map</span>
+    <% end %>
+    <%= link_to user_matches_path(current_user) do %>
+      <i class="fa-solid fa-dumbbell"></i>
+      <span class="footer-text">Matches</span>
+    <% end %>
+    <%= link_to homepage_users_path do %>
+      <i class="fa-solid fa-id-card"></i>
+      <span class="footer-text">Home</span>
+    <% end %>
+  </div>
+</div>

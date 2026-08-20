@@ -1,0 +1,149 @@
+<div class="wrapper d-flex flex-column justify-content-between">
+  <div class="container" style="padding-bottom: 50px;">
+    <div class="content-aligned py-3 container">
+      <h1>GymBuddy</h1>
+    </div>
+    <%# Start to write your code below %>
+
+    <div data-controller="tabs" class="tabs-container">
+      <ul class="nav nav-pills nav-fill modern-tabs">
+
+  <li class="nav-item">
+    <a
+      data-tabs-target="tab2"
+      data-action="click->tabs#activeClass"
+      class="nav-link active"
+      href="#">
+      📩 Pending Requests
+      <span class="badge rounded-pill bg-dark ms-2">
+        <%= @my_match_to_accept_real.count %>
+      </span>
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a
+      data-tabs-target="tab"
+      data-action="click->tabs#activeClass"
+      class="nav-link"
+      href="#">
+      🤝 Your GymBuddies
+      <span class="badge rounded-pill bg-dark ms-2">
+        <%= @my_gymbuddies.count %>
+      </span>
+    </a>
+  </li>
+
+</ul>
+      <div class="list-match-to-accept d-none" data-tabs-target="content">
+        <ul>
+          <% if @my_gymbuddies %>
+            <% @my_gymbuddies.each do |match| %>
+              <% if current_user == match.user_requester %>
+                <div class="card-product my-4 me-1 border border-primary">
+                  <% if match.user_receiver.photos.first %>
+                    <%= link_to user_path(match.user_receiver) do %>
+                      <%= cl_image_tag match.user_receiver.photos.first.key, alt: "user image", id: "image" %>
+                    <% end %>
+                  <% else %>
+                    <%= link_to user_path(match.user_receiver) do %>
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRZem4co5Itv4LZwtQnvcj66ODvDWulDUupQ&usqp=CAU" alt="image">
+                    <% end %>
+                  <% end %>
+                  <div class="card-product-infos">
+                    <h1 id="our-h1"><%= match.user_receiver.first_name %></h1>
+                      <br>
+                      <% if match.chatrooms.first.nil? %>
+                        <%= simple_form_for [current_user, match, @chatroom] do |f| %>
+                        <%= f.submit "Start chat!", class: "btn btn-primary" %>
+                        <% end %>
+                      <% else %>
+                        <%= link_to "Chat", user_match_chatroom_path(current_user, match, match.chatrooms.first), class: "btn btn-primary", style:"display: center" %>
+                      <% end %>
+                      </h6>
+                  </div>
+                </div>
+              <% else %>
+                <div class="card-product my-4 me-1 border border-primary">
+                  <% if match.user_requester.photos.first %>
+                    <%= link_to user_path(match.user_requester) do %>
+                      <%= cl_image_tag match.user_requester.photos.first.key, alt: "user image", id: "image" %>
+                    <% end %>
+                  <% else %>
+                    <%= link_to user_path(match.user_requester) do %>
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRZem4co5Itv4LZwtQnvcj66ODvDWulDUupQ&usqp=CAU" alt="image">
+                    <% end %>
+                  <% end %>
+                  <div class="card-product-infos">
+                    <h1 id="our-h1"><%= match.user_requester.first_name %></h1>
+                      <br>
+                      <% if match.chatrooms.first.nil? %>
+                        <%= simple_form_for [current_user, match, @chatroom] do |f| %>
+                        <%= f.submit "Start chat!", class: "btn btn-primary" %>
+                        <% end %>
+                      <% else %>
+                        <%= link_to "Chat", user_match_chatroom_path(current_user, match, match.chatrooms.first), class: "btn btn-primary", style:"display: center" %>
+                      <% end %>
+                      </h6>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+      <% if @my_match_to_accept_real %>
+        <div class="list-match-accepted" data-tabs-target="content2">
+          <ul style= "padding-left:0px">
+              <% @my_match_to_accept_real.each do |match| %>
+                <div>
+                <% if match.user_requester.photos.first %>
+                  <%= link_to user_path(match.user_requester) do %>
+                  <div class = "activity-card match-card mb-3 mx-auto ">
+                    <div>
+                      <%= cl_image_tag match.user_requester.photos.first.key, alt: "" %>
+                    </div>
+                    <% end %>
+                  <% else %>
+                    <%= link_to user_path(match.user_requester) do %>
+                      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRZem4co5Itv4LZwtQnvcj66ODvDWulDUupQ&usqp=CAU" alt="image">
+                    <% end %>
+                  <% end %>
+                      <div>
+                        <h5><%= match.user_requester.first_name %></h5>
+                        <p>Activities:<% match.user_requester.activities.each do |activities| %>
+                        <% if activities.name == 'climbing' %>
+                          Climbing <i class="fa-solid fa-person-hiking"></i>
+                        <% elsif activities.name == 'swimming' %>
+                          Swimming <i class="fa-solid fa-person-swimming"></i>
+                        <% elsif activities.name == 'boxing' %>
+                          Boxing <i class="fa-solid fa-boxing-glove"></i>
+                        <% elsif activities.name == 'crossfit' %>
+                          Crossfit <i class="fa-solid fa-arrow-down-up-across-line"></i>
+                        <% elsif activities.name == 'running' %>
+                          Running <i class="fa-solid fa-person-running"></i>
+                        <% elsif activities.name == 'bodybuilding' %>
+                          Bodybuilding <i class="fa-solid fa-dumbbell"></i>
+                        <% elsif activities.name == 'tennis' %>
+                          Tennis <i class="fa-solid fa-table-tennis-paddle-ball"></i>
+                        <% elsif activities.name == 'golf' %>
+                          Golf <i class="fa-solid fa-golf-club"></i>
+                        <% end %>
+                        <% end %></p>
+                        <p>Fitness Level: <%= match.user_requester.level_of_fitness %></p>
+                      </div>
+                    </div>
+                  </div>
+                  <%# </div> %>
+                <div class="buttons d-flex justify-content-evenly">
+                  <%= link_to "<<Skip", user_match_path(match.user_requester, match, status: 2), data:{ turbo_method: :patch }, class: "btn btn-dark border border-primary" %>
+                  <%= link_to "Connect", user_match_path(match.user_requester, match, status: 1), data:{ turbo_method: :patch }, class: "btn btn-primary" %>
+                </div>
+              <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%= render "shared/footer" %>
+</div>

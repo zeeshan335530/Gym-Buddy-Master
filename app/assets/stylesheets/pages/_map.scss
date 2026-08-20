@@ -1,0 +1,97 @@
+.container {
+  .potential {
+    color: $our-yellow;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+}
+
+/* ---------- Search Card ---------- */
+
+.search-card{
+  width: 450px;
+  margin: 20px auto;
+  padding: 25px;
+
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(12px);
+
+  border-radius: 20px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,.35);
+
+  color: white;
+}
+
+.search-card h3{
+  text-align:center;
+  color:#FFC107;
+  margin-bottom:20px;
+}
+
+.radius-label{
+  display:block;
+  margin-bottom:12px;
+  font-weight:600;
+}
+
+#radiusSlider{
+  width:100%;
+  cursor:pointer;
+}
+
+.radius-value{
+
+  text-align:center;
+
+  font-size:24px;
+
+  font-weight:bold;
+
+  color:#FFC107;
+
+  margin:18px 0;
+
+}
+
+.search-btn{
+
+  width:100%;
+
+  border:none;
+
+  padding:15px;
+
+  border-radius:12px;
+
+  background:#FFC107;
+
+  color:#222;
+
+  font-size:18px;
+
+  font-weight:bold;
+
+  transition:.3s;
+
+}
+
+.search-btn:hover{
+
+  background:#ffd54f;
+
+  transform:translateY(-2px);
+
+}
+
+/* ---------- Map ---------- */
+
+.map-container {
+  width: 100%;
+  min-height: 650px;
+  height: 650px;
+  display: block;
+  border-radius: 20px;
+  overflow: hidden;
+}
